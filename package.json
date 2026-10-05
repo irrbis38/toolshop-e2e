@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "UI- и API-автотесты для [Toolshop](https://practicesoftwaretesting.com) на Playwright и TypeScript.",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/irrbis38/toolshop-e2e.git"
