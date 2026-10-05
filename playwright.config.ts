@@ -23,7 +23,7 @@ export default defineConfig({
     // Адрес берётся из .env, запасное значение работает без него
     baseURL: process.env.BASE_URL ?? 'https://practicesoftwaretesting.com',
 
-    // getByTestId будет искать по атрибуту data-test (проверьте в DevTools)
+    // getByTestId будет искать по атрибуту data-test (на https://practicesoftwaretesting.com/ такой нейминг)
     testIdAttribute: 'data-test',
 
     // Артефакты только для упавших тестов
