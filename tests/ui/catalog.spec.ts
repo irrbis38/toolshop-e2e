@@ -1,12 +1,12 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from '../../fixtures';
 
 test.describe('Каталог', () => {
-  test('Страница каталога содержит карточку товара', { tag: '@smoke' }, async ({ page }) => {
-    await page.goto('/');
+  test.beforeEach(async ({catalogPage}) => {
+    await catalogPage.open();
+  })
 
-    const productNames = page.getByTestId('product-name');
-
-    await expect(productNames.first()).toBeVisible();
-    await expect(productNames).not.toHaveCount(0);
+  test('Страница каталога содержит карточку товара', { tag: '@smoke' }, async ({ catalogPage }) => {
+    await expect(catalogPage.productNames.first()).toBeVisible();
+    await expect(catalogPage.productNames).not.toHaveCount(0);
   });
 });
