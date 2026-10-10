@@ -19,7 +19,7 @@ export class CatalogPage {
     await this.page.goto('/');
   }
 
-  async search(query: string): Promise<void>{
+  async search(query: string): Promise<void> {
     const responsePromise = this.page.waitForResponse(
       (response) => response.url().includes('/products/search') && response.ok(),
     );
