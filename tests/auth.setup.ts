@@ -1,5 +1,5 @@
-import { test as setup, expect } from '../fixtures';
-import { requireEnv } from '../utils/env';
+import { test as setup, expect } from '@fixtures';
+import { requireEnv } from '@utils/env';
 
 const authFile = 'playwright/.auth/user.json';
 

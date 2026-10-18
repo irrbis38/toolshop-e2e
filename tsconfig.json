@@ -8,7 +8,12 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "noEmit": true,
-    "types": ["node"]
+    "types": ["node"],
+    "paths": {
+      "@fixtures": ["./fixtures/index"],
+      "@pages/*": ["./pages/*"],
+      "@utils/*": ["./utils/*"]
+    }
   },
   "include": ["**/*.ts"],
   "exclude": ["node_modules"]

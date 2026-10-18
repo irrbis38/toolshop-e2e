@@ -1,7 +1,7 @@
 import { test as base } from '@playwright/test';
-import { CatalogPage } from '../pages/catalog.page';
-import { LoginPage } from '../pages/login.page';
-import { Header } from '../pages/pages.header';
+import { CatalogPage } from '@pages/catalog.page';
+import { LoginPage } from '@pages/login.page';
+import { Header } from '@pages/pages.header';
 
 type Fixtures = {
   catalogPage: CatalogPage;
