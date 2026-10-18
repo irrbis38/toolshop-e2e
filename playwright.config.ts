@@ -35,12 +35,15 @@ export default defineConfig({
   projects: [
     { name: 'setup', testMatch: /.*\.setup\.ts/ },
     {
-      name: 'chromium',
+      name: 'guest',
+      testMatch: '**/guest/**/*.spec.ts',
+      use: { ...devices['Desktop Chrome'] },
+    },
+    {
+      name: 'authenticated',
+      testMatch: '**/authenticated/**/*.spec.ts',
       use: { ...devices['Desktop Chrome'], storageState: 'playwright/.auth/user.json' },
       dependencies: ['setup'],
     },
-    // Включим при настройке CI (matrix по браузерам):
-    // { name: 'firefox', use: { ...devices['Desktop Firefox'] } },
-    // { name: 'webkit', use: { ...devices['Desktop Safari'] } },
   ],
 });
