@@ -5,14 +5,12 @@ export class CatalogPage {
   readonly searchInput: Locator;
   readonly searchSubmit: Locator;
   readonly searchCaption: Locator;
-  readonly searchResultCount: Locator;
 
   constructor(private readonly page: Page) {
     this.productNames = page.getByTestId('product-name');
     this.searchInput = page.getByTestId('search-query');
     this.searchSubmit = page.getByTestId('search-submit');
     this.searchCaption = page.getByTestId('search-caption');
-    this.searchResultCount = page.getByTestId('search-result-count');
   }
 
   async open(): Promise<void> {
@@ -27,5 +25,12 @@ export class CatalogPage {
     await this.searchInput.fill(query);
     await this.searchSubmit.click();
     await responsePromise;
+  }
+
+  async openFirstProduct(): Promise<string> {
+    const card = this.page.getByRole('link').filter({ has: this.productNames }).first();
+    const name = (await card.getByTestId('product-name').innerText()).trim();
+    await card.click();
+    return name;
   }
 }
