@@ -4,11 +4,13 @@ export class LoginPage {
   readonly emailInput: Locator;
   readonly passwordInput: Locator;
   readonly submitButton: Locator;
+  readonly errorMessage: Locator;
 
   constructor(private readonly page: Page) {
     this.emailInput = page.getByTestId('email');
     this.passwordInput = page.getByTestId('password');
     this.submitButton = page.getByTestId('login-submit');
+    this.errorMessage = page.getByTestId('login-error');
   }
 
   async open(): Promise<void> {
