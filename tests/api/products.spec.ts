@@ -3,7 +3,7 @@ import { getFirstProduct } from './helpers';
 import type { Product, ProductsPage } from './types';
 
 test.describe('GET /products', () => {
-  test('GET /products, возвращает не пустой список товаров', async ({ request }) => {
+  test('возвращает не пустой список товаров', async ({ request }) => {
     const response = await request.get('/products');
 
     expect(response.status()).toBe(200);
@@ -23,8 +23,10 @@ test.describe('GET /products', () => {
       brand: { name: expect.any(String) },
     });
   });
+});
 
-  test('GET /products/{id}, возвращает корректный товар', async ({ request }) => {
+test.describe('GET /products/{id}', () => {
+  test('возвращает товар, совпадающий с данными из списка', async ({ request }) => {
     const listed = await getFirstProduct(request);
 
     const response = await request.get(`/products/${listed.id}`);
