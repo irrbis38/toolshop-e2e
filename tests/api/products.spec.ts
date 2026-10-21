@@ -44,4 +44,12 @@ test.describe('GET /products/{id}', () => {
       brand: { name: listed.brand.name },
     });
   });
+
+  test('возвращает 404 для несуществующего товара', async ({ request }) => {
+    const response = await request.get('/products/00000000000000000000000000');
+
+    expect(response.status()).toBe(404);
+    expect(response.headers()['content-type']).toContain('application/json');
+    expect(await response.json()).toEqual({ message: 'Requested item not found' });
+  });
 });
